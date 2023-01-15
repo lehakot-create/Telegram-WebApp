@@ -1,7 +1,7 @@
 const btn = document.querySelector('button')
 
 btn.onclick = ()=>{
-    alert('Hello user')
+    alert(`Hello${WebApp.WebAppUser.username}`)
 }
 
 const WebApp = window.Telegram.WebApp;
