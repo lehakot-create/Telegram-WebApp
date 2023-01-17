@@ -1,22 +1,3 @@
-// const btn = document.querySelector('button')
-
-// let WebApp = window.Telegram.WebApp;
-
-// btn.onclick = ()=>{
-//     // WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`);
-//
-//     alert(`Hello from telegram`)
-//     const initData = window.Telegram.WebApp.initData
-//     alert(initData)
-// }
-
-// let WebApp = window.Telegram.WebApp;
-//
-// WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`);
-
-// var MainButton = window.Telegram.WebApp
-// MainButton.show()
-
 let tg = window.Telegram.WebApp; //получаем объект webapp телеграма
 
 tg.expand(); //расширяем на все окно
@@ -27,31 +8,34 @@ tg.MainButton.textColor = "#F55353"; //изменяем цвет текста к
 tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
 tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
 
+let btn = document.getElementById("btn"); //получаем кнопку скрыть/показать
+
 btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-	if (tg.MainButton.isVisible){ //если кнопка показана
-		tg.MainButton.hide() //скрываем кнопку
-	}
+  if (tg.MainButton.isVisible){ //если кнопка показана
+	 tg.MainButton.hide() //скрываем кнопку
+  }
   else{ //иначе
-  	tg.MainButton.show() //показываем
+	 tg.MainButton.show() //показываем
   }
 });
 
 let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
 btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-	if (tg.MainButton.isActive){ //если кнопка показана
-		tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
-		tg.MainButton.disable() //скрываем кнопку
-	}
-	else{ //иначе
-		tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
-		tg.MainButton.enable() //показываем
-	}
+  if (tg.MainButton.isActive){ //если кнопка показана
+	 tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
+	 tg.MainButton.disable() //скрываем кнопку
+  }
+  else{ //иначе
+	 tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
+	 tg.MainButton.enable() //показываем
+  }
 });
 
 Telegram.WebApp.onEvent('mainButtonClicked', function(){
-	tg.sendData("some string that we need to send");
-	//при клике на основную кнопку отправляем данные в строковом виде
+  tg.sendData("some string that we need to send");
+  //при клике на основную кнопку отправляем данные в строковом виде
 });
+
 
 let usercard = document.getElementById("usercard"); //получаем блок usercard
 
@@ -65,3 +49,9 @@ usercard.appendChild(profName); //добавляем
 let userid = document.createElement('p'); //создаем еще параграф
 userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
 usercard.appendChild(userid); //добавляем
+
+
+//работает только в attachment menu
+// let pic = document.createElement('img'); //создаем img
+// pic.src = tg.initDataUnsafe.user.photo_url; //задаём src
+// usercard.appendChild(pic); //добавляем элемент в карточку
