@@ -7,9 +7,7 @@ btn.onclick = ()=>{
     alert(initData)
 }
 
-const WebApp = window.Telegram.WebApp;
+let WebApp = window.Telegram.WebApp;
 
 WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`);
 
-const initData = window.Telegram.WebApp.initData
-console.log(initData)
