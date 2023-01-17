@@ -6,11 +6,12 @@ btn.onclick = ()=>{
 
     alert(`Hello from telegram`)
     const initData = window.Telegram.WebApp.initData
-    console.log(initData)
     alert(initData)
 }
 
-let WebApp = window.Telegram.WebApp;
+// let WebApp = window.Telegram.WebApp;
+//
+// WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`);
 
-WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`);
-
+var MainButton = window.Telegram.WebApp
+MainButton.show()
