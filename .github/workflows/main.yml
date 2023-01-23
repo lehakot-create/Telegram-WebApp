@@ -1,0 +1,18 @@
+name: workflow
+on: push
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: install flake8
+        run: pip install flake8
+      - name: run flake8
+        run: flake8 *.py
+
+      - name: Run Tests
+        run: echo Run test
+
+      - name: Run Bandit
+        run: echo Run Bandit
